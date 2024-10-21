@@ -1,6 +1,5 @@
 "use client";
 
-// import ThemeContext from "@/components/context/ThemeContext";
 const ThemeContext = dynamic(
   () => import("@/components/context/ThemeContext"),
   {

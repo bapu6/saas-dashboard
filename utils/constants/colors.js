@@ -10,11 +10,13 @@ const colors = {
 
   // ligh colors
   fontInactiveLight: "rgba(255, 255, 255, 0.4)",
+  btnInactiveLight: "rgba(255, 255, 255, 0.2)",
   listActiveLight: "rgba(28, 28, 28, 0.05)",
 
   // dark colors
   listActiveDark: "rgba(255, 255, 255, 0.05)",
   fontInactiveDark: "rgba(28, 28, 28, 0.4)",
+  btnInactiveDark: "rgba(28, 28, 28, 0.2)",
   listBgDark: "rgba(255, 255, 255, 0.1)",
 };
 

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React, { useContext, useState } from "react";
 import Image from "next/image";
 import type { MenuProps } from "antd";
@@ -17,14 +17,14 @@ import OnlineCourse from "@/assets/svg/OnlineCourses.svg";
 import Social from "@/assets/svg/Social.svg";
 import UserProfile from "@/assets/svg/UserProfile.svg";
 import AngelArrowRight from "@/assets/svg/AngelArrowRight.svg";
-import { menu } from "@/utils/constants";
+import { colors, menu } from "@/utils/constants";
 import CustomMenu from "./Menu/CustomMenu";
 import { ThemeContext } from "@/components/context/ThemeContext";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
 const App: React.FC = () => {
-  const { theme } = useContext(ThemeContext);
+  const { theme, inactiveFg } = useContext(ThemeContext);
 
   const [selectedDashboardMenu, setSelectedDashboardMenu] = useState<string[]>([
     menu.DEFAULT,
@@ -265,7 +265,19 @@ const App: React.FC = () => {
             variant="text"
             onClick={() => setSelectedBtn("favorites")}
           >
-            <p className="text-inactive">Favorites</p>
+            <p
+              className={`text-[${
+                theme === "light"
+                  ? selectedBtn === "favorites"
+                    ? colors.fontInactiveDark
+                    : colors.btnInactiveDark
+                  : selectedBtn === "favorites"
+                  ? colors.fontInactiveLight
+                  : colors.btnInactiveLight
+              }]`}
+            >
+              Favorites
+            </p>
           </Button>
           <Button
             className="px-2 py-1"
@@ -274,7 +286,19 @@ const App: React.FC = () => {
             name="b"
             onClick={() => setSelectedBtn("recently")}
           >
-            <p className="text-inactive">Recently</p>
+            <p
+              className={`text-${
+                theme === "light"
+                  ? selectedBtn === "recently"
+                    ? colors.fontInactiveDark
+                    : colors.btnInactiveDark
+                  : selectedBtn === "recently"
+                  ? colors.fontInactiveLight
+                  : colors.btnInactiveLight
+              }`}
+            >
+              Recently
+            </p>
           </Button>
         </div>
         <div className="flex flex-col mt-2 gap-1">
