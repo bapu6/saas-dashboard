@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "@/app/page";
+import { ThemeContext } from "@/components/context/ThemeContext";
 
 const Sidebar = ({ opacity = 1, ...props }) => {
   const { activeFg } = useContext(ThemeContext);

@@ -1,7 +1,8 @@
+"use client";
 import React, { useContext } from "react";
 import { Breadcrumb } from "antd";
 
-import { ThemeContext } from "@/app/page";
+import { ThemeContext } from "@/components/context/ThemeContext";
 import Sidebar from "@/assets/svg/Sidebar";
 import Star from "@/assets/svg/Star";
 import { menu } from "@/utils/constants";

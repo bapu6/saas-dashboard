@@ -1,3 +1,4 @@
+'use client';
 import React, { useContext, useState } from "react";
 import Image from "next/image";
 import type { MenuProps } from "antd";
@@ -18,7 +19,7 @@ import UserProfile from "@/assets/svg/UserProfile.svg";
 import AngelArrowRight from "@/assets/svg/AngelArrowRight.svg";
 import { menu } from "@/utils/constants";
 import CustomMenu from "./Menu/CustomMenu";
-import { ThemeContext } from "@/app/page";
+import { ThemeContext } from "@/components/context/ThemeContext";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
