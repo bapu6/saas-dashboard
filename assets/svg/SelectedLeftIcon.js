@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+
 import { ThemeContext } from "@/components/context/ThemeContext";
 
 const SelectedLeftIcon = ({ opacity = 1, ...props }) => {
@@ -15,7 +16,7 @@ const SelectedLeftIcon = ({ opacity = 1, ...props }) => {
       <path
         d="M0 2C0 0.895431 0.895431 0 2 0C3.10457 0 4 0.895431 4 2V14C4 15.1046 3.10457 16 2 16C0.895431 16 0 15.1046 0 14V2Z"
         fill={activeFg}
-        opacity={opacity}
+        fill-opacity={opacity}
       />
     </svg>
   );

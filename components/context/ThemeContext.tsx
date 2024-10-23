@@ -44,33 +44,50 @@ const Theme = ({ children }: { children: ReactNode }) => {
         body {
           margin: 0;
           padding: 0;
-          background-color: ${theme === "light" ? "#ffffff" : "#000000"};
+          background-color: ${activeFg};
         }
         h1 {
           font-weight: 700;
         }
         p {
-          color: ${theme === "light" ? "#000000" : "#ffffff"};
+          color: ${activeFg};
           font-size: 14px;
           font-weight: 400;
           line-height: 20px;
+        }
+        .MuiTimelineConnector-root {
+          background: ${activeFg} !important;
+          opacity: 0.1;
+        }
+        .css-1fe8ybo-MuiTypography-root-MuiTimelineContent-root {
+          align-contents: center !important;
+        }
+        .css-1fxkmyt-MuiDataGrid-root .MuiDataGrid-cell {
+          color: ${activeFg} !important;
+        }
+        .css-6qpcc8-MuiButtonBase-root-MuiPaginationItem-root {
+          color: ${activeFg} !important;
         }
       `}</style>
       <ConfigProvider
         theme={{
           components: {
             Menu: {
+              itemHeight: 35,
+
               // light theme
               itemSelectedColor: colors?.black,
               itemSelectedBg: colors.listActiveLight,
 
               // dark theme
               darkItemBg: "transparent",
-              darkItemSelectedBg: colors.listBgDark,
+              darkItemSelectedBg: colors.menuItemSelectedBgDark,
+              darkSubMenuItemBg: "transparent",
             },
             Breadcrumb: {
               itemColor: inactiveFg,
               lastItemColor: activeFg,
+              separatorColor: inactiveFg,
             },
           },
         }}

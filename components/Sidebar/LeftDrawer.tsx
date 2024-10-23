@@ -7,24 +7,24 @@ import isEmpty from "lodash/isEmpty";
 
 import ByeWind from "@/assets/ByeWind.png";
 import SelectedLeftIcon from "@/assets/svg/SelectedLeftIcon";
-import Default from "@/assets/svg/Default.svg";
-import eCommerce from "@/assets/svg/eCommerce.svg";
-import Projects from "@/assets/svg/Projects.svg";
-import Account from "@/assets/svg/Account.svg";
-import Blog from "@/assets/svg/Blog.svg";
-import Corporate from "@/assets/svg/Corporate.svg";
-import OnlineCourse from "@/assets/svg/OnlineCourses.svg";
-import Social from "@/assets/svg/Social.svg";
-import UserProfile from "@/assets/svg/UserProfile.svg";
-import AngelArrowRight from "@/assets/svg/AngelArrowRight.svg";
-import { colors, menu } from "@/utils/constants";
+import Default from "@/assets/svg/Default";
+import Ecommerce from "@/assets/svg/Ecommerce";
+import Projects from "@/assets/svg/Projects";
+import Account from "@/assets/svg/Account";
+import Blog from "@/assets/svg/Blog";
+import Corporate from "@/assets/svg/Corporate";
+import OnlineCourse from "@/assets/svg/OnlineCourses";
+import Social from "@/assets/svg/Social";
+import UserProfile from "@/assets/svg/UserProfile";
+import AngelArrowRight from "@/assets/svg/AngelArrowRight";
+import { menu } from "@/utils/constants";
 import CustomMenu from "./Menu/CustomMenu";
 import { ThemeContext } from "@/components/context/ThemeContext";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
 const App: React.FC = () => {
-  const { theme, inactiveFg } = useContext(ThemeContext);
+  const { theme, activeFg } = useContext(ThemeContext);
 
   const [selectedDashboardMenu, setSelectedDashboardMenu] = useState<string[]>([
     menu.DEFAULT,
@@ -85,29 +85,29 @@ const App: React.FC = () => {
       key: DASHBOARDS,
       label: DASHBOARDS,
       children: [
-        { label: DEFAULT, icon: Default, children: [] },
+        { label: DEFAULT, icon: <Default />, children: [] },
         {
           label: ECOMMERCE,
-          icon: eCommerce,
+          icon: <Ecommerce />,
           children: [
-            { label: OPTION1, icon: eCommerce },
-            { label: OPTION2, icon: eCommerce },
+            { label: OPTION1, icon: <Ecommerce /> },
+            { label: OPTION2, icon: <Ecommerce /> },
           ],
         },
         {
           label: PROJECTS,
-          icon: Projects,
+          icon: <Projects />,
           children: [
-            { label: OPTION1, icon: Projects },
-            { label: OPTION2, icon: Projects },
+            { label: OPTION1, icon: <Projects /> },
+            { label: OPTION2, icon: <Projects /> },
           ],
         },
         {
           label: ONLINE_COURSES,
-          icon: OnlineCourse,
+          icon: <OnlineCourse />,
           children: [
-            { label: OPTION1, icon: OnlineCourse },
-            { label: OPTION2, icon: OnlineCourse },
+            { label: OPTION1, icon: <OnlineCourse /> },
+            { label: OPTION2, icon: <OnlineCourse /> },
           ],
         },
       ],
@@ -118,45 +118,45 @@ const App: React.FC = () => {
       children: [
         {
           label: USER_PROFILE,
-          icon: UserProfile,
+          icon: <UserProfile />,
           children: [
-            { label: OVERVIEW, icon: UserProfile, children: [] },
-            { label: PROJECTS, icon: UserProfile, children: [] },
-            { label: CAMPAIGNS, icon: UserProfile, children: [] },
-            { label: DOCUMENTS, icon: UserProfile, children: [] },
-            { label: FOLLOWERS, icon: UserProfile, children: [] },
+            { label: OVERVIEW, icon: <UserProfile />, children: [] },
+            { label: PROJECTS, icon: <UserProfile />, children: [] },
+            { label: CAMPAIGNS, icon: <UserProfile />, children: [] },
+            { label: DOCUMENTS, icon: <UserProfile />, children: [] },
+            { label: FOLLOWERS, icon: <UserProfile />, children: [] },
           ],
         },
         {
           label: ACCOUNT,
-          icon: Account,
+          icon: <Account />,
           children: [
-            { label: OPTION1, icon: Account },
-            { label: OPTION2, icon: Account },
+            { label: OPTION1, icon: <Account /> },
+            { label: OPTION2, icon: <Account /> },
           ],
         },
         {
           label: CORPORATE,
-          icon: Corporate,
+          icon: <Corporate />,
           children: [
-            { label: OPTION1, icon: Corporate },
-            { label: OPTION2, icon: Corporate },
+            { label: OPTION1, icon: <Corporate /> },
+            { label: OPTION2, icon: <Corporate /> },
           ],
         },
         {
           label: BLOG,
-          icon: Blog,
+          icon: <Blog />,
           children: [
-            { label: OPTION1, icon: Blog },
-            { label: OPTION2, icon: Blog },
+            { label: OPTION1, icon: <Blog /> },
+            { label: OPTION2, icon: <Blog /> },
           ],
         },
         {
           label: SOCIAL,
-          icon: Social,
+          icon: <Social />,
           children: [
-            { label: OPTION1, icon: Social },
-            { label: OPTION2, icon: Social },
+            { label: OPTION1, icon: <Social /> },
+            { label: OPTION2, icon: <Social /> },
           ],
         },
       ],
@@ -186,11 +186,7 @@ const App: React.FC = () => {
           key: item?.label,
           label: (
             <div className="flex items-center">
-              <Image
-                src={item?.icon}
-                alt="menu-icon"
-                className="h-full w-full"
-              />
+              {item?.icon}
               <p className="ml-1">{item?.label}</p>
             </div>
           ),
@@ -206,18 +202,19 @@ const App: React.FC = () => {
                 }`}
               />
               {
-                <Image
+                <div
                   className={`mx-2 ${
                     isEmpty(item?.children) ? "invisible" : "visible"
                   }`}
-                  src={AngelArrowRight}
-                  alt="angel-arrow"
-                  style={{
-                    rotate: oenedMenus?.includes(item?.label)
-                      ? "90deg"
-                      : "0deg",
-                  }}
-                />
+                >
+                  <AngelArrowRight
+                    transform={`${
+                      oenedMenus?.includes(item?.label)
+                        ? "rotate(90)"
+                        : "rotate(0)"
+                    }`}
+                  />
+                </div>
               }
             </div>
           ),
@@ -227,11 +224,7 @@ const App: React.FC = () => {
               key: child?.label,
               label: (
                 <div className="flex items-center pl-6">
-                  <Image
-                    src={item?.icon}
-                    alt="default-menu"
-                    className="h-full w-full invisible"
-                  />
+                  <div className="invisible">{item?.icon}</div>
                   <p className="ml-1">{child?.label}</p>
                 </div>
               ),
@@ -245,10 +238,8 @@ const App: React.FC = () => {
   const dashboardMenu: MenuItem[] = getMenu(DASHBOARDS);
   const pagesMenu: MenuItem[] = getMenu(PAGES);
 
-  console.log("dashboardMenu :>> ", dashboardMenu);
-
   return (
-    <div className="flex p-4 w-full flex-col gap-4">
+    <div className="flex p-5 w-full flex-col gap-4">
       <div className="w-full flex items-center p-2">
         <Image
           className="h-6 w-6 rounded-full"
@@ -266,15 +257,9 @@ const App: React.FC = () => {
             onClick={() => setSelectedBtn("favorites")}
           >
             <p
-              className={`text-[${
-                theme === "light"
-                  ? selectedBtn === "favorites"
-                    ? colors.fontInactiveDark
-                    : colors.btnInactiveDark
-                  : selectedBtn === "favorites"
-                  ? colors.fontInactiveLight
-                  : colors.btnInactiveLight
-              }]`}
+              className={`text-[${activeFg}] ${
+                selectedBtn === "favorites" ? "opacity-[0.4]" : "opacity-[0.2]"
+              }`}
             >
               Favorites
             </p>
@@ -287,14 +272,8 @@ const App: React.FC = () => {
             onClick={() => setSelectedBtn("recently")}
           >
             <p
-              className={`text-${
-                theme === "light"
-                  ? selectedBtn === "recently"
-                    ? colors.fontInactiveDark
-                    : colors.btnInactiveDark
-                  : selectedBtn === "recently"
-                  ? colors.fontInactiveLight
-                  : colors.btnInactiveLight
+              className={`text-[${activeFg}] ${
+                selectedBtn === "recently" ? "opacity-[0.4]" : "opacity-[0.2]"
               }`}
             >
               Recently
@@ -306,9 +285,13 @@ const App: React.FC = () => {
             (item: string) => (
               <div key={item} className="flex items-center ml-6 gap-y-4 p-2">
                 <div className="flex justify-center items-center w-4 h-4">
-                  <div className="h-1.5 w-1.5 rounded-full bg-iconInactive" />
+                  <div
+                    className={`${
+                      theme === "dark" ? "bg-white" : "bg-black"
+                    } h-1.5 w-1.5 rounded-full opacity-[0.2]`}
+                  />
                 </div>
-                <p className="text-fontBlack ml-2">{item}</p>
+                <p className={`text-[${activeFg}] ml-2`}>{item}</p>
               </div>
             )
           )}
