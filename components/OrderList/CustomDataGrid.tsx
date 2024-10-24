@@ -63,6 +63,11 @@ const CustomDataGrid = () => {
       width: 90,
       editable: false,
       type: "number",
+      renderCell: (data) => (
+        <div className="h-full w-full flex justify-center items-center">
+          <p>{data?.row.id}</p>
+        </div>
+      ),
     },
     {
       field: "user",
@@ -88,6 +93,11 @@ const CustomDataGrid = () => {
       width: 120,
       editable: true,
       type: "string",
+      renderCell: (data) => (
+        <div className="h-full w-full flex justify-center items-center">
+          <p>{data?.row.project}</p>
+        </div>
+      ),
     },
     {
       field: "address",
@@ -95,6 +105,11 @@ const CustomDataGrid = () => {
       type: "string",
       width: 130,
       editable: true,
+      renderCell: (data) => (
+        <div className="h-full w-full flex justify-center items-center">
+          <p>{data?.row.address}</p>
+        </div>
+      ),
     },
     {
       field: "date",
@@ -102,6 +117,11 @@ const CustomDataGrid = () => {
       type: "string",
       width: 170,
       editable: true,
+      renderCell: (data) => (
+        <div className="h-full w-full flex justify-center items-center">
+          <p>{data?.row.date}</p>
+        </div>
+      ),
     },
     {
       field: "status",

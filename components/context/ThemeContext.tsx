@@ -62,11 +62,23 @@ const Theme = ({ children }: { children: ReactNode }) => {
         .css-1fe8ybo-MuiTypography-root-MuiTimelineContent-root {
           align-contents: center !important;
         }
-        .css-1fxkmyt-MuiDataGrid-root .MuiDataGrid-cell {
+        .MuiDataGrid-cell {
           color: ${activeFg} !important;
         }
         .css-6qpcc8-MuiButtonBase-root-MuiPaginationItem-root {
           color: ${activeFg} !important;
+        }
+        .css-1umw9bq-MuiSvgIcon-root {
+          color: ${activeFg} !important;
+        }
+        .MuiDataGrid-row--borderBottom {
+          background-color: transparent !important;
+        }
+        .MuiDataGrid-columnHeaderTitle {
+          color: ${inactiveFg} !important;
+        }
+        .MuiDataGrid-columnSeparator {
+          display: none !important;
         }
       `}</style>
       <ConfigProvider
