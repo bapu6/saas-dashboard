@@ -1,9 +1,13 @@
 "use client";
+
+import dynamic from "next/dynamic";
+import { useState } from "react";
+
 import Header from "@/components/Header";
 import Orders from "@/components/OrderList/Orders";
 import LeftDrawer from "@/components/Sidebar/LeftDrawer";
 import RightDrawer from "@/components/Sidebar/RightDrawer/RightDrawer";
-import dynamic from "next/dynamic";
+import Ecommerce from "@/components/eCommerce/Ecommerce";
 
 const ThemeContext = dynamic(
   () => import("@/components/context/ThemeContext"),
@@ -13,7 +17,7 @@ const ThemeContext = dynamic(
 );
 
 export default function Home() {
-  // const [, set] = useState();
+  const [isOrdresClicked, setIsOrdersClicked] = useState(false);
   return (
     <div>
       <ThemeContext>
@@ -24,11 +28,13 @@ export default function Home() {
             </div>
             <div className="flex-1 border-x">
               <Header />
-              <Orders />
+              {!isOrdresClicked ? <Ecommerce setIsOrdersClicked={setIsOrdersClicked} /> : <Orders />}
             </div>
-            <div className="flex w-1/5">
-              <RightDrawer />
-            </div>
+            {!isOrdresClicked && (
+              <div className="flex w-1/5">
+                <RightDrawer />
+              </div>
+            )}
           </div>
         </div>
       </ThemeContext>

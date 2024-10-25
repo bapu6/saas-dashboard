@@ -7,7 +7,7 @@ import Image from "next/image";
 import { getRandomValues } from "crypto";
 
 const CustomDataGrid = () => {
-  const { theme } = useContext(ThemeContext);
+  const { theme, activeFg } = useContext(ThemeContext);
   const [pageNo, setPageNo] = useState(1);
   const [currentPageRows, setCurrentPageRows] = useState([]);
   const pageLimit = 10;
@@ -160,8 +160,6 @@ const CustomDataGrid = () => {
     setCurrentPageRows(currentPageData);
   }, [pageNo, JSON.stringify(orderList)]);
 
-  //   useCall;
-
   return (
     <Box sx={{ width: "100%", position: "relative" }}>
       <DataGrid
@@ -183,7 +181,7 @@ const CustomDataGrid = () => {
         page={pageNo}
         onChange={handleChange}
         shape="rounded"
-        sx={{ position: "absolute", right: 10, bottom: 10 }}
+        sx={{ position: "absolute", right: 10, bottom: 10, color: activeFg }}
         defaultPage={1}
       />
     </Box>

@@ -17,6 +17,12 @@ const colors = {
   pendingDot: "#B1E3FF",
   approvedText: "##FFC555",
   approvedDot: "#FFE999",
+  primaryBlue: "#E3F5FF",
+  primaryBrand: "#C6C7F8",
+  secondaryCyan: "#A8C5DA",
+  secondaryMint:"#BAEDBD",
+  secondaryIndigo:"#95A4FC",
+  
 
   // ligh colors
   fontInactiveLight: "rgba(255, 255, 255, 0.4)",

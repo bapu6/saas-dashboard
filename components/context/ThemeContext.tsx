@@ -20,8 +20,7 @@ const Theme = ({ children }: { children: ReactNode }) => {
   const activeBg = theme === "light" ? colors.white : colors.black;
   const activeFg = theme !== "light" ? colors.white : colors.black;
   const inactiveFg =
-    theme === "light" ? colors.fontInactiveDark : colors.fontInactiveLight;
-
+    theme === "light" ? colors.btnInactiveDark : colors.btnInactiveLight;
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
@@ -79,6 +78,19 @@ const Theme = ({ children }: { children: ReactNode }) => {
         }
         .MuiDataGrid-columnSeparator {
           display: none !important;
+        }
+        .MuiBarElement-root {
+          width: 22px !important;
+          border-right: 4px !important;
+        }
+        .MuiBarElement-series-auto-generated-id-1 {
+          border-radius: 8px !important;
+        }
+        .MuiLinearProgress-bar {
+          background-color: #a8c5da !important;
+        }
+        .MuiChartsAxis-line {
+          stroke: ${activeFg} !important;
         }
       `}</style>
       <ConfigProvider
