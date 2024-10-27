@@ -174,6 +174,7 @@ const CustomDataGrid = () => {
         pageSizeOptions={[5]}
         checkboxSelection
         hideFooterPagination
+        sx={{ overflow: "scroll" }}
       />
       <Pagination
         count={noOfPage}

@@ -96,7 +96,7 @@ const Theme = ({ children }: { children: ReactNode }) => {
           color: ${inactiveFg} !important;
         }
         .css-1daizlm {
-          color: ${inactiveFg} !important;
+          color: ${activeFg} !important;
         }
       `}</style>
       <ConfigProvider
