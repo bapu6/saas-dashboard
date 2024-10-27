@@ -98,6 +98,9 @@ const Theme = ({ children }: { children: ReactNode }) => {
         .css-1daizlm {
           color: ${activeFg} !important;
         }
+        .css-1daizlm.Mui-selected {
+          background-color: ${inactiveFg} !important;
+        }
       `}</style>
       <ConfigProvider
         theme={{
