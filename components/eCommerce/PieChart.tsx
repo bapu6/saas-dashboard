@@ -8,9 +8,9 @@ function CustomPieChart({ data }) {
       <PieChart
         series={[
           {
-            paddingAngle: 5,
             innerRadius: 60,
             outerRadius: 80,
+            cornerRadius: 15,
             data,
           },
         ]}
