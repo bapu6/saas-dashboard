@@ -43,7 +43,7 @@ export default function BasicTable() {
         <TableHead>
           <TableRow>
             {headerData?.map((item) => (
-              <TableCell align="left">
+              <TableCell align="left" key={item}>
                 <p style={{ color: activeFg }}>{item}</p>
               </TableCell>
             ))}
@@ -52,7 +52,7 @@ export default function BasicTable() {
         <TableBody>
           {rows.map((row) => (
             <TableRow
-              key={row.name}
+              key={row?.name}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">

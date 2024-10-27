@@ -180,7 +180,7 @@ const Ecommerce: FC<EcommercePropsType> = ({ setIsOrdersClicked }) => {
             <PieChart data={pieChartData} />
             <div className="flex flex-col flex-1">
               {pieChartData?.map((item) => (
-                <div className="h-full mt-3">
+                <div className="h-full mt-3" key={item?.label}>
                   <div className="flex w-full h-full justify-between">
                     <div className="flex items-center">
                       <div

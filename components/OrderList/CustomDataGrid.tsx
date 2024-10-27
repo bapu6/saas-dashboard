@@ -2,9 +2,8 @@ import { colors } from "@/utils/constants";
 import { Box, Pagination } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import React, { useContext, useEffect, useState } from "react";
-import Theme, { ThemeContext } from "../context/ThemeContext";
+import { ThemeContext } from "../context/ThemeContext";
 import Image from "next/image";
-import { getRandomValues } from "crypto";
 
 const CustomDataGrid = () => {
   const { theme, activeFg } = useContext(ThemeContext);

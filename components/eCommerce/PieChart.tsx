@@ -2,7 +2,7 @@ import * as React from "react";
 import Stack from "@mui/material/Stack";
 import { PieChart } from "@mui/x-charts/PieChart";
 
-export default function PieChartWithPaddingAngle({ data }) {
+function CustomPieChart({ data }) {
   return (
     <Stack direction="row">
       <PieChart
@@ -22,3 +22,5 @@ export default function PieChartWithPaddingAngle({ data }) {
     </Stack>
   );
 }
+
+export default CustomPieChart;

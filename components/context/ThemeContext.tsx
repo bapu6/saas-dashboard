@@ -92,6 +92,12 @@ const Theme = ({ children }: { children: ReactNode }) => {
         .MuiChartsAxis-line {
           stroke: ${activeFg} !important;
         }
+        .css-d771x4 {
+          color: ${inactiveFg} !important;
+        }
+        .css-1daizlm {
+          color: ${inactiveFg} !important;
+        }
       `}</style>
       <ConfigProvider
         theme={{
